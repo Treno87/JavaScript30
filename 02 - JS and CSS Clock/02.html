@@ -106,7 +106,6 @@
                 fixTransition(hourHand, hrDeg, offset);
                 hourHand.style.transform = `rotate(${hrDeg}deg)`;
             }
-
             if (minDeg == offset) {
                 minDeg = minDeg + 360;
                 minHand.style.transform = `rotate(${minDeg}deg)`;
@@ -117,7 +116,6 @@
                 fixTransition(minHand, minDeg, offset);
                 minHand.style.transform = `rotate(${minDeg}deg)`;
             }
-            
             if (secDeg == offset) {
                 secDeg = secDeg + 360;
                 secondHand.style.transform = `rotate(${secDeg}deg)`;
@@ -129,11 +127,7 @@
                 secondHand.style.transform = `rotate(${secDeg}deg)`;
             }
         }
-
         setInterval(setDate, 1000);
-
-        //setDate();
-
     </script>
 
 </body>

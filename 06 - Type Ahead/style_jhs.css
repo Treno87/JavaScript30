@@ -6,7 +6,9 @@ html {
     font-weight: 00;
 }
 
-*, *:before, *.after {
+*,
+*:before,
+*.after {
     box-sizing: inherit;
 }
 
@@ -32,7 +34,7 @@ input.search {
     z-index: 2;
     border-radius: 5px;
     font-size: 40px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.12), inset 0 0 2px rgba(0,0,0,0.19);        
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
 }
 
 .suggestions {
@@ -45,7 +47,7 @@ input.search {
     background: white;
     list-style: none;
     border-bottom: 1px solid #d8d8d8;
-    box-shadow: 0 0 10px rgba(0,0,0,0.14);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
     margin: 0;
     padding: 20px;
     transition: background 0.2s;
@@ -66,4 +68,3 @@ span.population {
 .hl {
     background: #ffc60;
 }
-

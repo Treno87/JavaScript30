@@ -3,14 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Array Cardio 💪💪</title>
+    <title>Array Cardio</title>
 </head>
 
 <body>
-    <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+    <p><em>Psst: have a look at the JavaScript Console (F12)</em></p>
     <script>
-        // ## Array Cardio Day 2
-
         const people = [{
                 name: 'Wes',
                 year: 1988
@@ -50,42 +48,47 @@
                 id: 542328
             }
         ];
-
         // Some and Every Checks
-        const isAdult = people.some(person => ((new Date()).getFullYear()) - person.year >= 19);
+        const isAdult = person => ((new Date()).getFullYear() - person.year >= 19);
+        const isTrue = verifier => {
+            if (verifier === true) {
+                console.log("True!")
+            } else {
+                console.log("Nope! False")
+            };
+        }
 
-        console.log({
-            isAdult
-        });
+        console.log("Not all of them is kids");
+        isTrue(people.some(isAdult));
 
-        // Array.prototype.every() // is everyone 19?
-
-        const allAdults = people.every(person => ((new Date()).getFullYear()) - person.year >= 19);
-        console.log({
-            allAdults
-        });
+        console.log("Everybody is an Adult");
+        isTrue(people.every(isAdult));
 
         // Array.prototype.find()
         // Find is like filter, but instead returns just the one you are looking for
         // find the comment with the ID of 823423
 
-
         const comment = comments.find(comment => comment.id === 823423);
-
+        console.log("There is a comment with id 823423.");
         console.log(comment);
 
         // Array.prototype.findIndex()
         // Find the comment with this ID
         // delete the comment with the ID of 823423
         const index = comments.findIndex(comment => comment.id === 823423);
+        console.log("Index of the comment with id 823423 is");
         console.log(index);
 
         // comments.splice(index, 1);
-
         const newComments = [
             ...comments.slice(0, index),
             ...comments.slice(index + 1)
+
         ];
+        console.table(comments);
+        console.table(newComments);
+
+    </script>
 
     </script>
 </body>

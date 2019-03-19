@@ -11,31 +11,62 @@
         // start with strings, numbers and booleans
         let age = 100;
         let age2 = age;
-        console.log("copy operation: ", age, age2);
-        
+        console.log("copy operation (number): ", age, age2);
+        age2 = 200;
+        console.log("copy operation (number): ", age, age2);
+        console.log("--");
+
+        let name = "jhs";
+        let name2 = name;
+        console.log("copy operation (string): ", name, name2);
+        name2 = "justHS";
+        console.log("copy operation (string): ", name, name2);
+        console.log("--");
+
         // Let's say we have an array
         const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
 
         // and we want to make a copy of it.
+        const team = players;
+        console.log("reference: ", players, team);
+        console.log("type: ", typeof players, typeof team);
+
+
         // You might think we can just do something like this:
+        players[3] = "Dog"
+        team[2] = "Tiger"
 
         // however what happens when we update that array?
-
         // now here is the problem!
-
         // oh no - we have edited the original array too!
+        console.log("Dog and Tiger: ", players, team);
+        console.log("--");
 
-        // Why? It's because that is an array reference, not an array copy. They both point to the same array!
+        // Why? It's because that is an array reference, not an array copy. 
+        // They both point to the same array!
 
         // So, how do we fix this? We take a copy instead!
-
         // one way
-
         // or create a new array and concat the old one in
-
         // or use the new ES6 Spread
+        const team2 = players.slice();
+        const team3 = [].concat(players);
+        const team4 = [...players];
+        const team5 = Array.from(players);
 
         // now when we update it, the original one isn't changed
+        team2[2] = "Duck"
+        team3[2] = "Chicken"
+        team4[2] = "Cat"
+        team5[2] = "Mermaid"
+
+        console.log("Players: ", players);
+        console.log("team2: ", team2);
+        console.log("team3: ", team3);
+        console.log("team4: ", team4);
+        console.log("team5: ", team5);
+        console.log("--");
+
 
         // The same thing goes for objects, let's say we have a person object
 
@@ -46,13 +77,57 @@
         };
 
         // and think we make a copy:
+        const captain = person;
+        captain.age = 99;
+        console.log("object reference: ", person, captain);
+        console.log("--");
 
         // how do we take a copy instead?
-
         // We will hopefully soon see the object ...spread
+        const captain2 = Object.assign({}, person);
+        const captain3 = Object.assign({}, person, {
+            age: 22
+        });
+        const captain4 = Object.assign({}, person, {
+            age: 33,
+            number: 44
+        });
+        const captain5 = {
+            ...person
+        }
+        console.log("person: ", person);
+        console.log("captain2: ", captain2);
+        console.log("captain3: ", captain3);
+        console.log("captain4: ", captain4);
+        console.log("captain5: ", captain5);
 
         // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
 
+        const jhs = {
+            name: 'jhs',
+            social: {
+                t: '@jhs',
+                f: 'jhs.developer'
+            }
+        };
+        console.log("jhs: ", jhs);
+        
+        const jhs2 = {...jhs};
+        jhs.social.t = 'BIGBOY';
+        jhs2.social.f = 'littleboy'
+        
+        console.log("jhs - modifyed: ", jhs);
+        console.log("jhs2: ", jhs2);
+        console.log("--");
+        
+        const dev = Object.assign({}, jhs);
+        const dev2 = JSON.parse(JSON.stringify(jhs));
+        dev2.social.t = '@Baby';
+        dev2.social.f = 'Baby.Writer';
+        
+        console.log("dev: ", dev);
+        console.log("dev2: ", dev2);
+        
     </script>
 </body>
 
